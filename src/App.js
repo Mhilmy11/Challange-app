@@ -1,24 +1,28 @@
-import logo from './logo.svg';
 import './App.css';
+import Container from './Component/Container';
+import Button from './Component/Button';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <div className=' w-full flex justify-center pt-6'>
+        <div className=' font-bold'>Note App</div>
+      </div>
+      <Container>
+        <div>
+          <div className=' font-bold'>New Note</div>
+          <div>
+            <div>Title</div>
+            <input type="text" />
+          </div>
+          <div>
+            <div>Body</div>
+            <input type="text" />
+          </div>
+        </div>
+        <Button>Add New Note</Button>
+      </Container>
+    </>
   );
 }
 
