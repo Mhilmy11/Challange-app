@@ -9,7 +9,7 @@ function App() {
   return (
     <>
     <Modal></Modal>
-      {/* <div className=' w-full flex justify-center pt-6'>
+      <div className=' w-full flex justify-center pt-6'>
         <h1 className=' font-bold'>Note App</h1>
       </div>
 
@@ -32,7 +32,7 @@ function App() {
         <div className=' mt-11'>
           <h2 className=' font-bold'>Note OF You</h2>
         </div>
-      </Container> */}
+      </Container>
     </>
   );
 }
