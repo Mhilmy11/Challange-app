@@ -1,5 +1,6 @@
 import Button from "./Button"
-export default function Modal(){
+export default function Modal({open, onClose, Class}){ 
+    if (!open) return null
     return(
         <div className=" relative">
             <div className=" absolute w-full">
@@ -17,7 +18,7 @@ export default function Modal(){
                 <div className=" absolute w-full">
                     <div className=" flex h-screen justify-center items-center">
                         <div>
-                            <h1 className=" flex justify-center font-bold">Your Note Today</h1>
+                            <h1 className=" flex justify-center font-bold">Update Your Note Today</h1>
                             <div className=" mt-3">
                                 <h2>Title</h2>
                                 <textarea className="border-2 border-black rounded-md w-[450px]"></textarea>
@@ -27,6 +28,7 @@ export default function Modal(){
                                 <textarea className="border-2 border-black rounded-md w-[450px]" name="" id="" cols="30" rows="10"></textarea>
                             </div>
                             <Button>Update</Button>
+                            <Button Class={' bg-red-600 mt-2'}  onClose={onClose}>Close</Button>
                         </div>
                     </div>
                 </div>

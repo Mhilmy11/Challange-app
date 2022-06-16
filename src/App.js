@@ -9,7 +9,7 @@ function App() {
   const [isOpen, setIsOpen] = useState(false)
   return (
     <>
-      {/* <Modal></Modal> */}
+      <Modal open={isOpen} onClose={() => setIsOpen(false)}></Modal>
       <div className=' w-full flex justify-center pt-6'>
         <h1 className=' font-bold'>Note App</h1>
       </div>
@@ -34,7 +34,7 @@ function App() {
           <h2 className=' font-bold'>Note OF You</h2>
         </div>
 
-        <Card></Card>
+        <Card isOpen={setIsOpen}></Card>
       </Container>
     </>
   );
