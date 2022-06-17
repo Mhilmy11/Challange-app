@@ -1,12 +1,13 @@
 import './App.css';
 import Container from './Component/Container';
-import Button from './Component/Button';
 import React, { useState } from 'react';
 import Modal from './Component/Modal';
 import Card from './Component/Card';
+import NewNote from './Component/NewNote';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false)
+  const [notes, setIsNotes] = useState([])
   return (
     <>
       <Modal open={isOpen} onClose={() => setIsOpen(false)}></Modal>
@@ -15,26 +16,11 @@ function App() {
       </div>
 
       <Container>
-        <div className=' mt-10'>
-          <h2 className=' font-bold'>New Note</h2>
-          <div className=' mt-5'>
-            <div>Title</div>
-            <textarea className=' w-full border-2 border-black rounded-md'></textarea>
-          </div>
-          <div>
-            <div className=' mt-4'>Body</div>
-            <textarea typeof='text' cols="30" rows="10" className=' w-full border-2 border-black rounded-md'></textarea>
-          </div>
-        </div>
-        <div className=' mt-3'>
-          <Button>Add New Note</Button>
-        </div>
 
-        <div className=' mt-11'>
-          <h2 className=' font-bold'>Note OF You</h2>
-        </div>
+        <NewNote></NewNote>
 
         <Card isOpen={setIsOpen}></Card>
+
       </Container>
     </>
   );
