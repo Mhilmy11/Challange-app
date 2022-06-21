@@ -38,11 +38,13 @@ function App() {
   },[notes])
 
   const deleteNote=(title)=>{
-    const filteredNotes=notes.filter((element, index)=>{
+    const filteredNotes=notes.filter((element, index) => {
       return element.title !== title
     })
     setNotes(filteredNotes)
   }
+
+  
 
   return (
     <>
@@ -77,7 +79,7 @@ function App() {
             <div className=' mt-7'>
               <h2 className=' font-bold'>Note OF You</h2>
             </div>
-              <Card notes={notes} deleteNote={deleteNote} isOpen={setIsOpen}></Card>
+              <Card updateNote={updateNote} notes={notes} deleteNote={deleteNote} isOpen={setIsOpen}></Card>
             </>
           }
 
