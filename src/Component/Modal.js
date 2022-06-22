@@ -18,6 +18,7 @@ export default function Modal({ open, onClose, Class }) {
                     </div>
                     <div className=" absolute w-full">
                         <div className=" flex h-screen justify-center items-center">
+                            {update !== null && 
                             <div>
                                 <h1 className=" flex justify-center font-bold">Update Your Note Today</h1>
                                 <div className=" mt-3">
@@ -29,10 +30,11 @@ export default function Modal({ open, onClose, Class }) {
                                     <textarea className="border-2 border-black rounded-md w-[450px]" name="" id="" cols="30" rows="10"></textarea>
                                 </div>
                                 <div className=" flex justify-between mt-2">
-                                    <button className=" bg-green-500 p-2 rounded-md">Update</button>
+                                    <button onClick={update} className=" bg-green-500 p-2 rounded-md">Update</button>
                                     <Button Class={' bg-red-600'} onClose={onClose}>Close</Button>
                                 </div>
                             </div>
+}
                         </div>
                     </div>
                 </div>
