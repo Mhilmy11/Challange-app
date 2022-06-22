@@ -1,7 +1,7 @@
 import Button from "./Button"
-export default function Modal({open, onClose, Class}){ 
+export default function Modal({ open, onClose, Class }) {
     if (!open) return null
-    return(
+    return (
         <div className=" relative">
             <div className=" fixed w-full">
                 <div className=" flex h-screen justify-center items-center">
@@ -30,7 +30,7 @@ export default function Modal({open, onClose, Class}){
                                 </div>
                                 <div className=" flex justify-between mt-2">
                                     <button className=" bg-green-500 p-2 rounded-md">Update</button>
-                                    <Button Class={' bg-red-600'}  onClose={onClose}>Close</Button>
+                                    <Button Class={' bg-red-600'} onClose={onClose}>Close</Button>
                                 </div>
                             </div>
                         </div>

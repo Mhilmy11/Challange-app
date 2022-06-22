@@ -6,12 +6,12 @@ import Card from './Component/Card';
 import Button from './Component/Button';
 
 function App() {
-  const getDataFromLS=()=>{
+  const getDataFromLS = () => {
     const data = localStorage.getItem('notes')
-    if(data){
+    if (data) {
       return JSON.parse(data)
     }
-    else{
+    else {
       return []
     }
   }
@@ -22,29 +22,33 @@ function App() {
   const [title, setTitle] = useState("")
   const [body, setBody] = useState("")
 
-  const handleAddNoteSubmit=(e)=>{
+  const handleAddNoteSubmit = (e) => {
     e.preventDefault()
-    let note={
+    let note = {
       title,
       body
     }
-    setNotes([...notes,note])
+    setNotes([...notes, note])
     setTitle('')
     setBody('')
   }
 
-  useEffect(()=>{
+  useEffect(() => {
     localStorage.setItem('notes', JSON.stringify(notes))
-  },[notes])
+  }, [notes])
 
-  const deleteNote=(title)=>{
-    const filteredNotes=notes.filter((element, index) => {
+  const deleteNote = (title) => {
+    const filteredNotes = notes.filter((element, index) => {
       return element.title !== title
     })
     setNotes(filteredNotes)
   }
 
-  
+  const updateNote = () => {
+    setNotes(previousState => {
+      return { ...previousState, title: "", body: "" }
+    })
+  }
 
   return (
     <>
@@ -58,28 +62,28 @@ function App() {
         <form onSubmit={handleAddNoteSubmit}>
           <div className=' mt-10'>
             <div className=" flex justify-between">
-                <h2 className=' font-bold'>New Note</h2>
-                <Button Class={'p-2 bg-green-500'}>Add Note</Button>
+              <h2 className=' font-bold'>New Note</h2>
+              <Button Class={'p-2 bg-green-500'}>Add Note</Button>
             </div>
             <div className=' mt-5'>
-                <div>Title</div>
-                <textarea className=' w-full border-2 border-black rounded-md' required onChange={(e) => setTitle(e.target.value)} value={title}></textarea>
+              <div>Title</div>
+              <textarea className=' w-full border-2 border-black rounded-md' required onChange={(e) => setTitle(e.target.value)} value={title}></textarea>
             </div>
             <div>
-                <div className=' mt-4'>Body</div>
-                <textarea typeof='text' cols="30" rows="10" className=' w-full border-2 border-black rounded-md' required onChange={(e) => setBody(e.target.value)} value={body}></textarea>
+              <div className=' mt-4'>Body</div>
+              <textarea typeof='text' cols="30" rows="10" className=' w-full border-2 border-black rounded-md' required onChange={(e) => setBody(e.target.value)} value={body}></textarea>
             </div>
           </div>
         </form>
 
         <div>
 
-          {notes.length>0 && 
+          {notes.length > 0 &&
             <>
-            <div className=' mt-7'>
-              <h2 className=' font-bold'>Note OF You</h2>
-            </div>
-              <Card updateNote={updateNote} notes={notes} deleteNote={deleteNote} isOpen={setIsOpen}></Card>
+              <div className=' mt-7'>
+                <h2 className=' font-bold'>Note OF You</h2>
+              </div>
+              <Card notes={notes} deleteNote={deleteNote} isOpen={setIsOpen}></Card>
             </>
           }
 
